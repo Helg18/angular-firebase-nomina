@@ -11,4 +11,10 @@ export class EmpleadoService {
 
   constructor(private firebase: AngularFireDatabase) { }
 
+  // Obtener todos los empleados de la tabla
+  listarEmpleados() {
+    this.listaEmpleados = this.firebase.list('empleados');
+    return this.listaEmpleados;
+  }
+
 }
