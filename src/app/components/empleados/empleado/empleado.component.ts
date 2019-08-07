@@ -17,6 +17,11 @@ export class EmpleadoComponent implements OnInit {
   }
 
   onSubmit(empleado: Empleado) {
+    if (empleado.cargo === undefined || empleado.nombre === undefined ||
+      empleado.salario === undefined || empleado.apellidos === undefined) {
+      this.toastrService.error('Debes llenar todos los campos', 'ERROR');
+      return null;
+    }
     if (empleado.$key === undefined) {
       this.empleadoService.crearEmpleado(empleado);
       this.toastrService.success('Creado un nuevo empleado');
