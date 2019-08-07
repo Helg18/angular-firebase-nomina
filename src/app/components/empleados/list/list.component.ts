@@ -30,6 +30,7 @@ export class ListComponent implements OnInit {
   onEliminar($key: string) {
     if (confirm('Esta accion no se puede deshacer, estas seguro que quieres eliminarlo?')) {
       this.empleadoService.eliminarEmpleado($key);
+      this.empleadoService.empleadoSeleccionado = new Empleado();
       return true;
     }
     return null;
