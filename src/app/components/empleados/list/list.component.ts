@@ -23,4 +23,8 @@ export class ListComponent implements OnInit {
     });
   }
 
+  onEditar(empleado: Empleado) {
+    this.empleadoService.empleadoSeleccionado = Object.assign({}, empleado);
+  }
+
 }

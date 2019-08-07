@@ -16,7 +16,11 @@ export class EmpleadoComponent implements OnInit {
   }
 
   onSubmit(empleado: Empleado) {
-    this.empleadoService.crearEmpleado(empleado);
+    if (empleado.$key === undefined) {
+      this.empleadoService.crearEmpleado(empleado);
+    } else {
+      this.empleadoService.actualizarEmpleado(empleado);
+    }
     this.empleadoService.empleadoSeleccionado = new Empleado();
   }
 

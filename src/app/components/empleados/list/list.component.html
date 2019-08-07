@@ -30,8 +30,7 @@
           <td>{{empleado.cargo}}</td>
           <td>{{empleado.salario}}</td>
           <td>
-            <button>Editar</button>
-            <button>Eliminar</button>
+            <button (click)="onEditar(empleado)">Editar</button>
           </td>
         </tr>
       </tbody>

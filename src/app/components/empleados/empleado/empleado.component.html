@@ -4,6 +4,7 @@
   </div>
   <div class="card-body">
     <form #empleadoForm = "ngForm" (ngSubmit)="onSubmit(empleadoForm.value)">
+      <input type="hidden" name="$key" id="key" class="form-control" #key="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.$key">
       <div class="form-group">
         <label for="nombre">
           Nombre:
