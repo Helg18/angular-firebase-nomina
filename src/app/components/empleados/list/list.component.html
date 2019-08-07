@@ -1,1 +1,40 @@
-<p>list works!</p>
+<div class="card">
+  <div class="card-header">
+    <h4>Lista de empleados disponible</h4>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover table-stripped table-responsive">
+      <thead>
+      <tr>
+        <td>
+          <Strong>Nombre</Strong>
+        </td>
+        <td>
+          <Strong>Apellidos</Strong>
+        </td>
+        <td>
+          <Strong>Cargo</Strong>
+        </td>
+        <td>
+          <Strong>Salario</Strong>
+        </td>
+        <td>
+          <Strong>Opciones</Strong>
+        </td>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleadoList">
+          <td>{{empleado.nombre}}</td>
+          <td>{{empleado.apellidos}}</td>
+          <td>{{empleado.cargo}}</td>
+          <td>{{empleado.salario}}</td>
+          <td>
+            <button>Editar</button>
+            <button>Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

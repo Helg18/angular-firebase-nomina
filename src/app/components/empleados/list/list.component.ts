@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {EmpleadoService} from '../../../services/empleado.service';
+import {Empleado} from '../../../models/empleado';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  empleadoList: Empleado[];
+  constructor(private empleadoService: EmpleadoService) { }
 
   ngOnInit() {
+    this.empleadoService.listarEmpleados().snapshotChanges().subscribe(item => {
+      this.empleadoList = [];
+      item.forEach(value => {
+        const e = value.payload.toJSON();
+        e['$key'] = value.key;
+        this.empleadoList.push(e as Empleado);
+      });
+    });
   }
 
 }
