@@ -31,6 +31,7 @@
           <td>{{empleado.salario}}</td>
           <td>
             <button (click)="onEditar(empleado)">Editar</button>
+            <button (click)="onEliminar(empleado.$key)">Eliminar</button>
           </td>
         </tr>
       </tbody>
