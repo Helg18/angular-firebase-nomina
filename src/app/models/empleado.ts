@@ -1,5 +1,5 @@
 export class Empleado {
-  $key: string;
+  $key?: string;
   nombre: string;
   apellidos: string;
   cargo: string;

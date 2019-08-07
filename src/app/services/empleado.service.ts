@@ -8,6 +8,7 @@ import {Empleado} from '../models/empleado';
 export class EmpleadoService {
 
   listaEmpleados: AngularFireList<Empleado>;
+  empleadoSeleccionado: Empleado = new Empleado();
 
   constructor(private firebase: AngularFireDatabase) { }
 
@@ -17,4 +18,28 @@ export class EmpleadoService {
     return this.listaEmpleados;
   }
 
+  // Crear un nuevo empleado
+  crearEmpleado(empleado: Empleado) {
+    this.listaEmpleados.push({
+      nombre: empleado.nombre,
+      apellidos: empleado.apellidos,
+      cargo: empleado.cargo,
+      salario: empleado.salario
+    });
+  }
+
+  // Actualizar un empleado
+  actualizarEmpleado(empleado: Empleado) {
+    this.listaEmpleados.update(empleado.$key, {
+      nombre: empleado.nombre,
+      apellidos: empleado.apellidos,
+      cargo: empleado.cargo,
+      salario: empleado.salario
+    });
+  }
+
+  // Eliminar un empleado
+  eliminarEmpleado($key: string) {
+    this.listaEmpleados.remove($key);
+  }
 }
