@@ -11,6 +11,10 @@ import {environment} from '../environments/environment';
 // Services
 import { EmpleadoService } from './services/empleado.service';
 
+// Animaciones
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 // Components
 import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { ListComponent } from './components/empleados/list/list.component';
@@ -28,6 +32,8 @@ import { EmpleadoComponent } from './components/empleados/empleado/empleado.comp
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     EmpleadoService

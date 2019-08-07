@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmpleadoService} from '../../../services/empleado.service';
 import {Empleado} from '../../../models/empleado';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +11,7 @@ import {Empleado} from '../../../models/empleado';
 export class ListComponent implements OnInit {
 
   empleadoList: Empleado[];
-  constructor(private empleadoService: EmpleadoService) { }
+  constructor(private empleadoService: EmpleadoService, private toastrService: ToastrService) { }
 
   ngOnInit() {
     this.empleadoService.listarEmpleados().snapshotChanges().subscribe(item => {
@@ -31,6 +32,7 @@ export class ListComponent implements OnInit {
     if (confirm('Esta accion no se puede deshacer, estas seguro que quieres eliminarlo?')) {
       this.empleadoService.eliminarEmpleado($key);
       this.empleadoService.empleadoSeleccionado = new Empleado();
+      this.toastrService.success('Eliminado exitosamente', 'Eliminado');
       return true;
     }
     return null;
