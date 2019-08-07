@@ -3,33 +3,33 @@
     <h4 class="p-3">Crear un nuevo empleado</h4>
   </div>
   <div class="card-body">
-    <form>
+    <form #empleadoForm = "ngForm" (ngSubmit)="onSubmit(empleadoForm.value)">
       <div class="form-group">
         <label for="nombre">
           Nombre:
         </label>
-        <input type="text" name="nombre" id="nombre" class="form-control">
+        <input type="text" name="nombre" id="nombre" class="form-control" #nombre="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.nombre">
       </div>
       <div class="form-group">
         <label for="apellidos">
           Apellidos:
         </label>
-        <input type="text" name="apellidos" id="apellidos" class="form-control">
+        <input type="text" name="apellidos" id="apellidos" class="form-control" #apellidos="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.apellidos">
       </div>
       <div class="form-group">
         <label for="cargo">
           Cargo:
         </label>
-        <input type="text" name="cargo" id="cargo" class="form-control">
+        <input type="text" name="cargo" id="cargo" class="form-control" #cargo="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.cargo">
       </div>
       <div class="form-group">
         <label for="salario">
           Salario:
         </label>
-        <input type="text" name="salario" id="salario" class="form-control">
+        <input type="text" name="salario" id="salario" class="form-control" #salario="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.salario">
       </div>
       <div class="form-group">
-        <button class="btn bg-danger text-light">Guardar</button>
+        <button class="btn bg-danger text-light" type="submit">Guardar</button>
       </div>
 
     </form>

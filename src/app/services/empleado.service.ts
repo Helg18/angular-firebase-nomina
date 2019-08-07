@@ -7,7 +7,7 @@ import {Empleado} from '../models/empleado';
 })
 export class EmpleadoService {
 
-  listaEmpleados: AngularFireList<Empleado>;
+  listaEmpleados: AngularFireList<any>;
   empleadoSeleccionado: Empleado = new Empleado();
 
   constructor(private firebase: AngularFireDatabase) { }

@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import {FormsModule} from '@angular/forms';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import {environment} from '../environments/environment';
 
 // Services
@@ -23,7 +25,9 @@ import { EmpleadoComponent } from './components/empleados/empleado/empleado.comp
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
   providers: [
     EmpleadoService
